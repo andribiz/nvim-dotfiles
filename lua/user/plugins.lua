@@ -72,6 +72,7 @@ return packer.startup(function(use)
   use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters an 
+  use "jose-elias-alvarez/nvim-lsp-ts-utils"
   use "nvim-lua/lsp_extensions.nvim"  -- for inlay hint diagnostic
   use "simrat39/rust-tools.nvim" -- for rust enhancement
   -- Telescope 
