@@ -54,6 +54,7 @@ return packer.startup(function(use)
     use "RRethy/vim-illuminate"
     use "ahmedkhalf/project.nvim"
     use "goolord/alpha-nvim"
+    use "lukas-reineke/indent-blankline.nvim"
     -- color schemes
     use "morhetz/gruvbox"
     use "nvim-lualine/lualine.nvim"
@@ -80,6 +81,7 @@ return packer.startup(function(use)
     use "tomlion/vim-solidity"
     -- Telescope
     use "nvim-telescope/telescope.nvim"
+    use 'nvim-telescope/telescope-ui-select.nvim'
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -95,6 +97,9 @@ return packer.startup(function(use)
     use "theHamsta/nvim-dap-virtual-text"
     use "leoluz/nvim-dap-go"
     use "nvim-telescope/telescope-dap.nvim"
+    use "mfussenegger/nvim-dap-python"
+    -- Keyboard AI
+    use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
