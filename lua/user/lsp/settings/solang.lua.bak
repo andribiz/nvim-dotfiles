@@ -1,0 +1,4 @@
+return {
+    cmd = { "solang", "--language-server", "--target", "ewasm",
+        "--importmap", "@openzeppelin=node_modules/@openzeppelin/contracts" }
+}

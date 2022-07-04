@@ -1,4 +1,3 @@
-
 local opts = { noremap = true, silent = true }
 
 local term_opts = { silent = true }
@@ -20,10 +19,6 @@ vim.g.maplocalleader = " "
 --   command_mode = "c",
 
 -- Normal --
--- Better window navigation
--- this is not working
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
 
 -- Resize with arrows
 -- this is not working
@@ -36,8 +31,7 @@ keymap("n", "<A-Right>", ":vertical resize +2<CR>", opts)
 -- Move text up and down
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-keymap("n", "<A-h>", "<C-w>h", opts)
-keymap("n", "<A-l>", "<C-w>l", opts)
+keymap("n", "x", '"_x', opts)
 
 keymap("n", "<leader>e", ":NvimTreeToggle <CR>", opts)
 
@@ -63,14 +57,15 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 -- Telescope
 keymap("n", "<C-p>", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<c-f>", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<C-f>", "<cmd>Telescope current_buffer_fuzzy_find<cr>", opts)
+keymap("n", "<C-S-f>", "<cmd>Telescope live_grep<cr>", opts)
 
 -- my preferences
-keymap("n", "<C-s>", "<cmd>:w<cr>", opts)   -- save
-keymap("n", "<leader>q", "<cmd>:bd<cr>", opts)
+keymap("n", "<C-s>", "<cmd>:w<cr>", opts) -- save
+keymap("n", "Q", "<cmd>:bd<cr>", opts)
 keymap("n", "<leader>t", "<cmd>:ToggleTerm<cr>", opts)
 
--- LSP Shortcut 
+-- LSP Shortcut
 keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
 keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
@@ -81,4 +76,17 @@ keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 keymap("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", opts)
-keymap("n", "<leader>t", ":ToggleTerm direction=horizontal<cr>", opts)
+keymap("n", "<leader>t", ":ToggleTerm direction=horizontal size=20<cr>", opts)
+
+-- Debugging
+--debugging
+keymap("n", "<F5>", ":lua require'dap'.continue()<cr>", opts)
+keymap("n", "<F8>", ":lua require'dap'.step_over()<cr>", opts)
+keymap("n", "<F9>", ":lua require'dap'.step_into()<cr>", opts)
+keymap("n", "<F10>", ":lua require'dap'.step_out()<cr>", opts)
+keymap("n", "<leader>b", ":lua require'dap'.toggle_breakpoint()<cr>", opts)
+keymap("n", "<leader>B", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<cr>", opts)
+keymap("n", "<leader>lp", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<cr>", opts)
+keymap("n", "<leader>dr", ":lua require'dap'.repl.open()<cr>", opts)
+keymap("n", "<leader>dt", ":lua require'dap-go'.debug_test()<cr>", opts)
+keymap("n", "<leader>x", ":lua require('dap').terminate()<cr>", opts)
