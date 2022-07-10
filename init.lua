@@ -23,3 +23,8 @@ require "user.nvim-dapp-virtual-text"
 require "user.nvim-dap-python"
 require "user.indent-blankline"
 require "user.cmp-tabnine"
+require "fidget".setup {}
+require "nvim-surround".setup({})
+require "user.nvim-ts-autotag"
+require "trouble".setup {}
+require "user.lsp_signature"
