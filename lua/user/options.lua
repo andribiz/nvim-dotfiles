@@ -4,7 +4,8 @@ local options = {
     autoindent = true,
     number = true,
     relativenumber = true,
-    -- colorcolumn = 90, -- to do not working error syntax
+    colorcolumn = "90", -- to do not working error syntax
+    signcolumn = "yes",
     mouse = "a",
     showmatch = true,
     ignorecase = true,
@@ -13,6 +14,8 @@ local options = {
     fileencoding = "utf-8",
     clipboard = "unnamedplus",
     expandtab = true,
+    errorbells = false,
+    wrap = false,
     shiftwidth = 4,
     cursorline = true,
     ttyfast = true,
@@ -23,7 +26,9 @@ local options = {
     splitright = true,
     swapfile = false,
     termguicolors = true,
-    updatetime = 300
+    updatetime = 300,
+    backup = false,
+    scrolloff = 8,
 }
 
 for k, v in pairs(options) do
