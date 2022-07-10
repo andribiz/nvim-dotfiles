@@ -11,8 +11,14 @@ end
 local diagnostics = {
     "diagnostics",
     sources = { "nvim_diagnostic" },
-    sections = { "error", "warn" },
-    symbols = { error = " ", warn = " " },
+    sections = { "error", "warn", "info" },
+    symbols = { error = " ", warn = " ", info = " " },
+    diagnostics_color = {
+        -- Same values as the general color option can be used here.
+        error = 'DiagnosticError', -- Changes diagnostics' error color.
+        warn  = 'DiagnosticWarn', -- Changes diagnostics' warn color.
+        info  = 'DiagnosticInfo', -- Changes diagnostics' info color.
+    },
     colored = false,
     update_in_insert = false,
     always_visible = true,
@@ -51,6 +57,12 @@ local location = {
 
 local filename = {
     "filename",
+    path = 1,
+    symbols = {
+        modified = '[+]', -- Text to show when the file is modified.
+        readonly = '[-]', -- Text to show when the file is non-modifiable or readonly.
+        unnamed = '[No Name]', -- Text to show for unnamed buffers.
+    }
 }
 
 local lspname = {
