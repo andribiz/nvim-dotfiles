@@ -45,6 +45,7 @@ return packer.startup(function(use)
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
     use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
+    use "windwp/nvim-ts-autotag" -- Autotag for tsx
     use "numToStr/Comment.nvim" -- Easily comment stuff
     use "kyazdani42/nvim-web-devicons"
     use "kyazdani42/nvim-tree.lua"
@@ -55,6 +56,8 @@ return packer.startup(function(use)
     use "ahmedkhalf/project.nvim"
     use "goolord/alpha-nvim"
     use "lukas-reineke/indent-blankline.nvim"
+    use "j-hui/fidget.nvim"
+    use "kylechui/nvim-surround"
     -- color schemes
     use "morhetz/gruvbox"
     use "nvim-lualine/lualine.nvim"
@@ -79,6 +82,7 @@ return packer.startup(function(use)
     use "nvim-lua/lsp_extensions.nvim" -- for inlay hint diagnostic
     use "simrat39/rust-tools.nvim" -- for rust enhancement
     use "tomlion/vim-solidity"
+    use "ray-x/lsp_signature.nvim"
     -- Telescope
     use "nvim-telescope/telescope.nvim"
     use 'nvim-telescope/telescope-ui-select.nvim'
@@ -98,6 +102,7 @@ return packer.startup(function(use)
     use "leoluz/nvim-dap-go"
     use "nvim-telescope/telescope-dap.nvim"
     use "mfussenegger/nvim-dap-python"
+    use "folke/trouble.nvim"
     -- Keyboard AI
     use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
     -- Automatically set up your configuration after cloning packer.nvim
