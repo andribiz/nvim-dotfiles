@@ -112,10 +112,10 @@ cmp.setup {
     },
     sources = {
         { name = "nvim_lsp" },
+        { name = "cmp_tabnine" },
         { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
-        { name = "cmp_tabnine" },
     },
     confirm_opts = {
         behavior = cmp.ConfirmBehavior.Replace,
