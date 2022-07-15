@@ -77,9 +77,9 @@ keymap("n", "<leader>c", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 keymap("n", "<leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<cr>", opts)
 keymap("n", "<leader>t", ":ToggleTerm direction=horizontal size=20<cr>", opts)
+keymap("n", "<leader>o", ":TroubleToggle<cr>", opts)
 
 -- Debugging
---debugging
 keymap("n", "<F5>", ":lua require'dap'.continue()<cr>", opts)
 keymap("n", "<F8>", ":lua require'dap'.step_over()<cr>", opts)
 keymap("n", "<F9>", ":lua require'dap'.step_into()<cr>", opts)
