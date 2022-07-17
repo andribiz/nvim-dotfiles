@@ -10,7 +10,7 @@ require "user.gitsign"
 require "user.toggleterm"
 require 'user.telescope'
 require "user.autopairs"
--- require "user.project"
+require "user.project"
 -- require "user.alpha-nvim"
 -- require "user.nvim-dap"
 require "user.dapui"

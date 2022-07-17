@@ -53,7 +53,7 @@ return packer.startup(function(use)
     -- use "moll/vim-bbye"
     use "akinsho/toggleterm.nvim"
     use "RRethy/vim-illuminate"
-    -- use "ahmedkhalf/project.nvim" --Temp disabled
+    use "ahmedkhalf/project.nvim" --Temp disabled
     use { "glepnir/dashboard-nvim", cmd = "Dashboard", config = "require 'user.dashboard'" }
     -- use "goolord/alpha-nvim"
     use { "lukas-reineke/indent-blankline.nvim", event = "BufRead", config = "require 'user.indent-blankline'" }
@@ -61,8 +61,6 @@ return packer.startup(function(use)
     -- color schemes
     use "morhetz/gruvbox"
     use { "nvim-lualine/lualine.nvim", event = "BufWinEnter", config = "require('user.lualine')" }
-    -- use "vim-airline/vim-airline" -- themes airline
-    -- use "vim-airline/vim-airline-themes"
     -- completion
     use "hrsh7th/nvim-cmp" -- The completion plugin
     use "hrsh7th/cmp-buffer" -- buffer completions
@@ -79,7 +77,7 @@ return packer.startup(function(use)
     use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters an 
     -- use "jose-elias-alvarez/nvim-lsp-ts-utils"
-    use "nvim-lua/lsp_extensions.nvim" -- for inlay hint diagnostic
+    -- use "nvim-lua/lsp_extensions.nvim" -- for inlay hint diagnostic
     use { "tomlion/vim-solidity", ft = { "solidity" } }
     use "j-hui/fidget.nvim" -- Lsp Progress
     use "ray-x/lsp_signature.nvim"
