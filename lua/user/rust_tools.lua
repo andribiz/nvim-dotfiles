@@ -11,7 +11,3 @@ local opts = {
     }
 }
 require("rust-tools").setup(opts)
--- require('rust-tools.inlay_hints').set_inlay_hints()
--- require('rust-tools.runnables').runnables()
-vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]
-vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]

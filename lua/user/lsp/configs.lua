@@ -37,8 +37,12 @@ for _, server in pairs(servers) do
     lspconfig[server].setup(opts)
 end
 
-require("lsp_extensions").inlay_hints { prefix = '', highlight = "Comment" }
+-- require("lsp_extensions").inlay_hints { prefix = '', highlight = "Comment" }
 
 vim.api.nvim_create_autocmd("FileType", { pattern = { "javascript",
     "javascriptreact", "javascript.jsx", "typescript",
     "typescriptreact", "typescript.tsx" }, command = "setlocal tabstop=2 shiftwidth=2 softtabstop=2" })
+
+vim.cmd [[autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })]]
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
+
