@@ -48,20 +48,19 @@ return packer.startup(function(use)
     use "windwp/nvim-ts-autotag" -- Autotag for tsx
     use "numToStr/Comment.nvim" -- Easily comment stuff
     use "kyazdani42/nvim-web-devicons"
-    use "kyazdani42/nvim-tree.lua"
-    use "akinsho/bufferline.nvim"
-    use "moll/vim-bbye"
+    use { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = "require 'user.nvim-tree'" }
+    use { "akinsho/bufferline.nvim", event = "bufWinEnter", config = "require 'user.bufferline'" }
+    -- use "moll/vim-bbye"
     use "akinsho/toggleterm.nvim"
     use "RRethy/vim-illuminate"
-    use "ahmedkhalf/project.nvim"
-    use "glepnir/dashboard-nvim"
+    -- use "ahmedkhalf/project.nvim" --Temp disabled
+    use { "glepnir/dashboard-nvim", cmd = "Dashboard", config = "require 'user.dashboard'" }
     -- use "goolord/alpha-nvim"
-    use "lukas-reineke/indent-blankline.nvim"
-    use "j-hui/fidget.nvim"
+    use { "lukas-reineke/indent-blankline.nvim", event = "BufRead", config = "require 'user.indent-blankline'" }
     use "kylechui/nvim-surround"
     -- color schemes
     use "morhetz/gruvbox"
-    use "nvim-lualine/lualine.nvim"
+    use { "nvim-lualine/lualine.nvim", event = "BufWinEnter", config = "require('user.lualine')" }
     -- use "vim-airline/vim-airline" -- themes airline
     -- use "vim-airline/vim-airline-themes"
     -- completion
@@ -79,14 +78,15 @@ return packer.startup(function(use)
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
     use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters an 
-    use "jose-elias-alvarez/nvim-lsp-ts-utils"
+    -- use "jose-elias-alvarez/nvim-lsp-ts-utils"
     use "nvim-lua/lsp_extensions.nvim" -- for inlay hint diagnostic
-    use "simrat39/rust-tools.nvim" -- for rust enhancement
-    use "tomlion/vim-solidity"
+    use { "simrat39/rust-tools.nvim", ft = { "rust" }, config = "require 'user.rust_tools'" } -- for rust enhancement
+    use { "tomlion/vim-solidity", ft = { "solidity" } }
+    use "j-hui/fidget.nvim" -- Lsp Progress
     use "ray-x/lsp_signature.nvim"
     -- Telescope
-    use "nvim-telescope/telescope.nvim"
-    use 'nvim-telescope/telescope-ui-select.nvim'
+    use { "nvim-telescope/telescope.nvim" }
+    use { 'nvim-telescope/telescope-ui-select.nvim' }
     -- Treesitter
     use {
         "nvim-treesitter/nvim-treesitter",
@@ -100,10 +100,10 @@ return packer.startup(function(use)
     use "mfussenegger/nvim-dap"
     use "rcarriga/nvim-dap-ui"
     use "theHamsta/nvim-dap-virtual-text"
-    use "leoluz/nvim-dap-go"
+    use { "leoluz/nvim-dap-go", ft = { 'go' }, config = "require 'user.dap-go'" }
     use "nvim-telescope/telescope-dap.nvim"
-    use "mfussenegger/nvim-dap-python"
-    use "folke/trouble.nvim"
+    use { "mfussenegger/nvim-dap-python", ft = { "python" }, config = "require 'user.nvim-dap-python'" }
+    use {"folke/trouble.nvim", cmd="TroubleToggle", config="require 'trouble'.setup {}"}
     -- Keyboard AI
     use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
     -- Automatically set up your configuration after cloning packer.nvim
