@@ -80,7 +80,6 @@ return packer.startup(function(use)
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters an 
     -- use "jose-elias-alvarez/nvim-lsp-ts-utils"
     use "nvim-lua/lsp_extensions.nvim" -- for inlay hint diagnostic
-    use { "simrat39/rust-tools.nvim", ft = { "rust" }, config = "require 'user.rust_tools'" } -- for rust enhancement
     use { "tomlion/vim-solidity", ft = { "solidity" } }
     use "j-hui/fidget.nvim" -- Lsp Progress
     use "ray-x/lsp_signature.nvim"
@@ -100,10 +99,22 @@ return packer.startup(function(use)
     use "mfussenegger/nvim-dap"
     use "rcarriga/nvim-dap-ui"
     use "theHamsta/nvim-dap-virtual-text"
-    use { "leoluz/nvim-dap-go", ft = { 'go' }, config = "require 'user.dap-go'" }
     use "nvim-telescope/telescope-dap.nvim"
-    use { "mfussenegger/nvim-dap-python", ft = { "python" }, config = "require 'user.nvim-dap-python'" }
     use {"folke/trouble.nvim", cmd="TroubleToggle", config="require 'trouble'.setup {}"}
+    -- Rust
+    use { "simrat39/rust-tools.nvim", ft = { "rust" }, config = "require 'user.rust_tools'" } -- for rust enhancement
+    use {
+        'saecki/crates.nvim',
+        event = { "BufRead Cargo.toml" },
+        requires = { { 'nvim-lua/plenary.nvim' } },
+        config = function()
+            require('crates').setup()
+        end,
+    }
+    -- Python 
+    use { "mfussenegger/nvim-dap-python", ft = { "python" }, config = "require 'user.nvim-dap-python'" }
+    -- Go
+    use { "leoluz/nvim-dap-go", ft = { 'go' }, config = "require 'user.dap-go'" }
     -- Keyboard AI
     use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
     -- Automatically set up your configuration after cloning packer.nvim
