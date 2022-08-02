@@ -13,9 +13,11 @@ null_ls.setup({
     debug = false,
     sources = {
         -- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-        formatting.prettier,
-        diagnostics.eslint_d,
-        code_actions.eslint_d,
+        formatting.prettier.with({
+            disabled_filetypes = { "json" },
+        }),
+        diagnostics.eslint,
+        code_actions.eslint,
         -- formatting.black.with({ extra_args = { "--fast" } }),
         -- formatting.stylua,
         -- diagnostics.flake8
