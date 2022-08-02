@@ -28,7 +28,6 @@ local status_ok, packer = pcall(require, "packer")
 if not status_ok then
     return
 end
-
 -- Have packer use a popup window
 packer.init {
     display = {
@@ -48,18 +47,19 @@ return packer.startup(function(use)
     use "windwp/nvim-ts-autotag" -- Autotag for tsx
     use "numToStr/Comment.nvim" -- Easily comment stuff
     use "kyazdani42/nvim-web-devicons"
-    use { "kyazdani42/nvim-tree.lua", cmd = "NvimTreeToggle", config = "require 'user.nvim-tree'" }
+    use { "kyazdani42/nvim-tree.lua", config = "require 'user.nvim-tree'" }
     use { "akinsho/bufferline.nvim", event = "bufWinEnter", config = "require 'user.bufferline'" }
     -- use "moll/vim-bbye"
     use "akinsho/toggleterm.nvim"
     use "RRethy/vim-illuminate"
     use "ahmedkhalf/project.nvim" --Temp disabled
-    use { "glepnir/dashboard-nvim", cmd = "Dashboard", config = "require 'user.dashboard'" }
+    use { "glepnir/dashboard-nvim", config = "require 'user.dashboard'" }
     -- use "goolord/alpha-nvim"
     use { "lukas-reineke/indent-blankline.nvim", event = "BufRead", config = "require 'user.indent-blankline'" }
     use "kylechui/nvim-surround"
     -- color schemes
-    use "morhetz/gruvbox"
+    -- use "morhetz/gruvbox"
+    use "ellisonleao/gruvbox.nvim"
     use { "nvim-lualine/lualine.nvim", event = "BufWinEnter", config = "require('user.lualine')" }
     -- completion
     use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -74,7 +74,7 @@ return packer.startup(function(use)
     -- LSP
     use "neovim/nvim-lspconfig" -- enable LSP
     use "williamboman/nvim-lsp-installer" -- simple to use language server installer
-    use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+    -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
     use "jose-elias-alvarez/null-ls.nvim" -- for formatters an 
     -- use "jose-elias-alvarez/nvim-lsp-ts-utils"
     -- use "nvim-lua/lsp_extensions.nvim" -- for inlay hint diagnostic
@@ -98,7 +98,7 @@ return packer.startup(function(use)
     use "rcarriga/nvim-dap-ui"
     use "theHamsta/nvim-dap-virtual-text"
     use "nvim-telescope/telescope-dap.nvim"
-    use {"folke/trouble.nvim", cmd="TroubleToggle", config="require 'trouble'.setup {}"}
+    use { "folke/trouble.nvim", cmd = "TroubleToggle", config = "require 'trouble'.setup {}" }
     -- Rust
     use { "simrat39/rust-tools.nvim", ft = { "rust" }, config = "require 'user.rust_tools'" } -- for rust enhancement
     use {
@@ -109,7 +109,7 @@ return packer.startup(function(use)
             require('crates').setup()
         end,
     }
-    -- Python 
+    -- Python
     use { "mfussenegger/nvim-dap-python", ft = { "python" }, config = "require 'user.nvim-dap-python'" }
     -- Go
     use { "leoluz/nvim-dap-go", ft = { 'go' }, config = "require 'user.dap-go'" }
