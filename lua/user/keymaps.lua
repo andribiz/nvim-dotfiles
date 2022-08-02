@@ -62,6 +62,7 @@ keymap("n", "<C-S-f>", "<cmd>Telescope live_grep<cr>", opts)
 
 -- my preferences
 keymap("n", "<C-s>", "<cmd>:w<cr>", opts) -- save
+keymap("i", "<C-s>", "<Esc>:w<cr>", opts) -- save
 keymap("n", "Q", "<cmd>:bd<cr>", opts)
 keymap("n", "<leader>t", "<cmd>:ToggleTerm<cr>", opts)
 
