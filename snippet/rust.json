@@ -1,0 +1,41 @@
+{
+    "modtest": {
+        "prefix": "modtest",
+        "body": [
+            "#[cfg(test)] ",
+            "mod ${1:name} {",
+            " ",
+            "}"
+        ],
+        "description": "Mod test"
+    },
+    "structder": {
+        "prefix": "structder",
+        "body": [
+            "#[derive(Debug)] ",
+            "struct ${1:name} {",
+            " ",
+            "}"
+        ],
+        "description": "Struct with derive"
+    },
+    "asyncfn": {
+        "prefix": "asyfn",
+        "body": [
+            "async fn ${1:name}(${2:arg}: ${3:Type}) -> ${4:RetType} {",
+            "    ${5:unimplemented!();}",
+            "}"
+        ],
+        "description": "async fn …(…) { … }"
+    },
+    "tokiotest": {
+        "prefix": "tokiotest",
+        "body": [
+            "#[tokio::test]",
+            "async fn ${1:name}() {",
+            "    ${2:unimplemented!();}",
+            "}"
+        ],
+        "description": "#[tokio::test]"
+    }
+}
