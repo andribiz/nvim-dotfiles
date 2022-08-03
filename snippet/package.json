@@ -6,6 +6,10 @@
             {
                 "language": "rust",
                 "path": "./rust.json"
+            },
+            {
+                "language": "typescriptreact",
+                "path": "./tsx.json"
             }
         ]
     }
