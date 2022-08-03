@@ -43,8 +43,6 @@ return packer.startup(function(use)
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-    use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-    use "windwp/nvim-ts-autotag" -- Autotag for tsx
     use "numToStr/Comment.nvim" -- Easily comment stuff
     use "kyazdani42/nvim-web-devicons"
     use { "kyazdani42/nvim-tree.lua", config = "require 'user.nvim-tree'" }
@@ -88,9 +86,19 @@ return packer.startup(function(use)
     use {
         "nvim-treesitter/nvim-treesitter",
         run = ":TSUpdate",
+        config = "require 'user.treesitter' "
     }
-    use "p00f/nvim-ts-rainbow"
-    use "JoosepAlviste/nvim-ts-context-commentstring"
+    use { "p00f/nvim-ts-rainbow",
+        ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
+    }
+    use { "JoosepAlviste/nvim-ts-context-commentstring",
+        ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
+    }
+    use { "windwp/nvim-autopairs" } -- Autopairs, integrates with both cmp and treesitter
+    use { "windwp/nvim-ts-autotag", after = "nvim-treesitter",
+        config = "require 'user.nvim-ts-autotag'",
+        ft = { "typescript", "javascript", "typescriptreact", "javascriptreact" }
+    } -- Autotag for tsx
     -- Git
     use "lewis6991/gitsigns.nvim"
     -- debug
