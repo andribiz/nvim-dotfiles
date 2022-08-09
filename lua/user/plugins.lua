@@ -66,6 +66,7 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-cmdline" -- cmdline completions
     use "saadparwaiz1/cmp_luasnip" -- snippet completions
     use "hrsh7th/cmp-nvim-lsp"
+    use "onsails/lspkind.nvim"
     -- snippet
     use "L3MON4D3/LuaSnip" --snippet engine
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
@@ -121,6 +122,9 @@ return packer.startup(function(use)
     use { "mfussenegger/nvim-dap-python", ft = { "python" }, config = "require 'user.nvim-dap-python'" }
     -- Go
     use { "leoluz/nvim-dap-go", ft = { 'go' }, config = "require 'user.dap-go'" }
+    -- Markdown
+    use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
     -- Keyboard AI
     use { 'tzachar/cmp-tabnine', run = './install.sh', requires = 'hrsh7th/nvim-cmp' }
     -- Automatically set up your configuration after cloning packer.nvim
